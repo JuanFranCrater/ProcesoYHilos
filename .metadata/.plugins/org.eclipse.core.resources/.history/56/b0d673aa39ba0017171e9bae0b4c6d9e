@@ -1,0 +1,10 @@
+package pspro.dam;
+
+public class HiloSemaforo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
