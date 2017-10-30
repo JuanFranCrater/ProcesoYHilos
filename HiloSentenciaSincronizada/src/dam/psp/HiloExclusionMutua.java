@@ -4,13 +4,28 @@ class DatosCompartido{
 	public static int c1 = 0;
 	public static int c2 = 0;
 	
+	private static final Object mutex1 = new Object();
+	private static final Object mutex2 = new Object();
+	
+	
 	public static void incremetarC1()
 	{
-		c1++;
+		//Sesion critica 1
+		synchronized(mutex1) {
+			c1++;	
+		}
+		
+		//Fin SC1
 	}
 	public static void incremetarC2()
 	{
-		c2++;
+		//Sesion critica 2
+		synchronized (mutex2)
+		{
+			c2++;
+		}
+		
+		//Fin SC2
 	}
 }
 
