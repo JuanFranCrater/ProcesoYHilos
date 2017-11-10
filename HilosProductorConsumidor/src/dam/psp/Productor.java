@@ -12,18 +12,19 @@ public class Productor extends Thread {
 	
 	@Override
 	public void run() {
+		int contador=0;
 		for(int i = 0; i< veces; i++)
 		{
-			try {
-			Thread.sleep((int) (Math.random()*3001));
+			//try {
+			//Thread.sleep((int) (Math.random()*3001));
 			compartido.escribir(i);
-			}catch(InterruptedException e)
-			{
-				e.printStackTrace();
+			//}catch(InterruptedException e)
+			//{
+				//e.printStackTrace();
 				
-			}
-			
+		//	}
+			contador++;
 		}
-		System.out.println(getName() + " termino de producir datos");
+		//System.out.println(getName() + " termino de producir datos("+contador+")");
 	}
 }

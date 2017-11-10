@@ -7,27 +7,37 @@ public class BufferCompartido implements Buffer {
 	
 	@Override
 	public synchronized int leer() {
+		
 		while(contadorOcupado==0)
 		{
 			try {
-				this.wait();
+				wait();
 			}catch(InterruptedException e)
 			{
 				e.printStackTrace();
 			}
 		}
-		this.notifyAll();
+		contadorOcupado=0;
+		notify();
 		return buffer;
 	}
 
 	@Override
 	public synchronized void escribir(int valor) 
-	{
-		contadorOcupado--;
+	{		
+		while(contadorOcupado==1)
+		{
+			try {
+				wait();
+			}catch(InterruptedException e)
+			{
+				e.printStackTrace();
+			}
+		}
 		buffer= valor;
-		contadorOcupado++;
-		this.notifyAll();
-		
+		System.out.println("Se ha creado el "+valor);
+		contadorOcupado=1;
+		notify();
 	}
 
 	@Override

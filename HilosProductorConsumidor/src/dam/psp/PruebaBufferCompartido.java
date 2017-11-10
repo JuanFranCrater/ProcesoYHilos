@@ -4,11 +4,13 @@ public class PruebaBufferCompartido {
 
 	public static void main(String[] args) {
 		
-		Buffer bcompartido = new BufferCompartido();
+		//Buffer bcompartido = new BufferCompartido();
+		Buffer bcompartido = new BufferCompartidoCircular();
 		
 		Productor prod = new Productor(bcompartido, 10);
 		Consumidor con1 = new Consumidor(bcompartido, 6);
 		Consumidor con2 = new Consumidor(bcompartido, 4);
+		
 		StringBuffer encabezado = new StringBuffer("Operación");
 		encabezado.setLength(40);
 		encabezado.append("Buffer		Contador ocupado");
