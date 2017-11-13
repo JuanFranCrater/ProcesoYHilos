@@ -14,21 +14,12 @@ public class Filosofo implements Runnable {
 		for(int i =0; i<veces;i++)
 		{
 			pensar();
-			while(!laCena.getPalillo(posicion).enUso)
-			{
-				try {
-					wait();
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
 			cogerPalillo();
 			comer();
 			soltarPalillo();
 			notifyAll();
 		}
-		System.out.println("Yo, el Filosofo"+posicion+", he acabado de cenar");
+		System.out.println("Yo, el Filosofo "+posicion+", he acabado de cenar");
 	}
 	void pensar()
 	{
@@ -57,6 +48,8 @@ public class Filosofo implements Runnable {
 		System.out.println("Yo, el Filosofo"+posicion+", voy a coger los palillos");
 		laCena.getPalillo(laCena.getPalilloD(posicion)).coger();
 		laCena.getPalillo(laCena.getPalilloI(posicion)).coger();
+		
+		System.out.println("Yo, el Filosofo"+posicion+", los he cogido");
 	}
 	void soltarPalillo()
 	{

@@ -12,6 +12,15 @@ public class Cena {
 		}
 	}
 	public synchronized Palillo getPalillo(int numComensal ){
+		while(palillos[numComensal].enUso)
+		{
+			try {
+				wait();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		return palillos[numComensal];
 	}
 	public synchronized int getPalilloD(int numComensal) {

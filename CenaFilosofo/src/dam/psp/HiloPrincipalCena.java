@@ -16,7 +16,14 @@ public class HiloPrincipalCena {
 		{
 			hilo=new Thread(new Filosofo(i,almuerzos, laCena));
 			hilo.start();
+			try {
+				hilo.join();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
+		
 		
 		System.out.println("Hilo Principal acabado");
 	
