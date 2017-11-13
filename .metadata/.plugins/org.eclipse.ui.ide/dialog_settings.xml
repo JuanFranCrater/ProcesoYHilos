@@ -14,6 +14,6 @@
 		<item value="1|Noto Sans|9.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 		<item value="590" key="DIALOG_HEIGHT"/>
 		<item value="421" key="DIALOG_X_ORIGIN"/>
-		<item value="-29" key="DIALOG_Y_ORIGIN"/>
+		<item value="0" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

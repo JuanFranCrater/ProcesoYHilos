@@ -21,7 +21,7 @@ public class Arbitro implements Juego{
 		return turno;
 	}
 	@Override
-	public boolean seAcabo() {
+	public synchronized boolean seAcabo() {
 	
 		return acertado;
 	}

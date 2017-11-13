@@ -70,8 +70,8 @@
 	<section name="quick_assist_proposal_size">
 	</section>
 	<section name="completion_proposal_size">
-		<item value="86" key="size.y"/>
-		<item value="295" key="size.x"/>
+		<item value="48" key="size.y"/>
+		<item value="281" key="size.x"/>
 	</section>
 	<section name="JavaElementSearchActions">
 	</section>

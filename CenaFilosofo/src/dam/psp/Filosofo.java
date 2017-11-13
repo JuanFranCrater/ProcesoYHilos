@@ -17,13 +17,14 @@ public class Filosofo implements Runnable {
 			cogerPalillo();
 			comer();
 			soltarPalillo();
-			notifyAll();
 		}
 		System.out.println("Yo, el Filosofo "+posicion+", he acabado de cenar");
+		System.out.println();
 	}
 	void pensar()
 	{
 		System.out.println("Yo, el Filosofo "+posicion+", estoy pensando");
+		System.out.println();
 		try {
 			Thread.sleep((long)Math.random());
 		} catch (InterruptedException e) {
@@ -31,10 +32,12 @@ public class Filosofo implements Runnable {
 			e.printStackTrace();
 		}
 		System.out.println("Yo, el Filosofo "+posicion+", empiezo a tener hambre");
+		System.out.println();
 	}
 	void comer()
 	{
 		System.out.println("Yo, el Filosofo "+posicion+", comienzo a comer");
+		System.out.println();
 		try {
 			Thread.sleep((long)Math.random());
 		} catch (InterruptedException e) {
@@ -42,20 +45,50 @@ public class Filosofo implements Runnable {
 			e.printStackTrace();
 		}
 		System.out.println("Yo, el Filosofo"+posicion+", he terminado de comer");
+		System.out.println();
 	}
 	void cogerPalillo()
+	{if(posicion%2==0)
+	{
+	System.out.println("Yo, el Filosofo"+posicion+", voy a coger los palillos");
+	System.out.println();
+	laCena.getPalillo(laCena.getPalilloD(posicion)).coger();
+	laCena.getPalillo(laCena.getPalilloI(posicion)).coger();
+	
+	System.out.println("Yo, el Filosofo"+posicion+", los he cogido");
+	System.out.println();
+	}else
 	{
 		System.out.println("Yo, el Filosofo"+posicion+", voy a coger los palillos");
-		laCena.getPalillo(laCena.getPalilloD(posicion)).coger();
+		System.out.println();
 		laCena.getPalillo(laCena.getPalilloI(posicion)).coger();
-		
+		laCena.getPalillo(laCena.getPalilloD(posicion)).coger();
 		System.out.println("Yo, el Filosofo"+posicion+", los he cogido");
+		System.out.println();
+	}
+		
 	}
 	void soltarPalillo()
 	{
-		System.out.println("Yo, el Filosofo"+posicion+", voy a soltar los palillos");
+		if(posicion%2==0)
+		{
+		System.out.println("Yo, el Filosofo"+posicion+", voy a coger los palillos");
+		System.out.println();
 		laCena.getPalillo(laCena.getPalilloD(posicion)).soltar();
 		laCena.getPalillo(laCena.getPalilloI(posicion)).soltar();
+		
+		System.out.println("Yo, el Filosofo"+posicion+", los he cogido");
+		System.out.println();
+		}else
+		{
+			System.out.println("Yo, el Filosofo"+posicion+", voy a coger los palillos");
+			System.out.println();
+			laCena.getPalillo(laCena.getPalilloI(posicion)).soltar();
+			laCena.getPalillo(laCena.getPalilloD(posicion)).soltar();
+			System.out.println("Yo, el Filosofo"+posicion+", los he cogido");
+			System.out.println();
+		}
+		;
 	}
 
 	

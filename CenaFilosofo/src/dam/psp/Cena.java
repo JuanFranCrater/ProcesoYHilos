@@ -11,33 +11,13 @@ public class Cena {
 			palillos[i]=new Palillo(i);
 		}
 	}
-	public synchronized Palillo getPalillo(int numComensal ){
-		while(palillos[numComensal].enUso)
-		{
-			try {
-				wait();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+	public Palillo getPalillo(int numComensal ){
 		return palillos[numComensal];
 	}
-	public synchronized int getPalilloD(int numComensal) {
-	if(numComensal==comensales-1)
-	{
-		return 0;
-	}else {
-		return numComensal+1;
+	public int getPalilloD(int numComensal) {
+	return (numComensal+1)%comensales;
 	}
-	}
-	public synchronized int getPalilloI(int numComensal) {
-	
-		if(numComensal==0)
-		{
-			return comensales-1;
-		}else {
-			return numComensal;
-		}
+	public int getPalilloI(int numComensal) {
+		return numComensal;
 	}
 }
